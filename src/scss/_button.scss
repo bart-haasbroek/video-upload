@@ -1,0 +1,51 @@
+@import './variables';
+
+$color-button-background: $color-2;
+$color-button-text: $color-1;
+
+
+.button {
+	display: block;
+	padding: 10px 35px 13px;
+	background: $color-2;
+	color: $color-button-text;
+	border-radius: 4px;
+
+	transition: background 0.3s ease;
+	font-size: 22px;
+	border: none;
+	cursor: pointer;
+
+	&:after {
+		@include icon();
+		content: '\e131';
+		margin-left: 12px;
+		top: 4px;
+	}
+
+	&[disabled] {
+		opacity: .4;
+		pointer-events:  none;
+	}
+
+	&:hover {
+		background: $color-1;
+	}
+
+	&--small {
+		padding: 8px 25px 8px;
+		font-size: 18px;
+	}
+
+	&--full {
+		width: 100%;
+	}
+
+	&--uppercase {
+		text-transform: uppercase;
+	}
+
+	&--no-icon:after {
+		display: none;
+	}
+}

@@ -1,0 +1,22 @@
+<div class="upload-wrapper">
+
+	<upload-button
+	[maxMB]="50"
+	(onAddFile)="upload($event)"
+	[acceptedFiles]="['mp4']"
+	></upload-button>
+
+	<div class="upload__process-bar" *ngIf="(isUploading$ | async)">
+		<div class="upload__process" [ngStyle]="{'width': (fileProgress$ | async) + '%'}"></div>
+	</div>
+</div>
+
+<ng-container *ngIf="(isUploaded$ | async)">
+	<div class="video-container">
+		<video width="100%" controls autoplay="autoplay">
+		<source [src]="(upload$ | async)" type="video/mp4">
+		<source src="mov_bbb.ogg" type="video/ogg">
+			Your browser does not support HTML5 video.
+		</video>
+	</div>
+</ng-container>

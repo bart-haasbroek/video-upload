@@ -1,0 +1,12 @@
+<app-header [headerImage]="(pageContent$ | async)?.headerImage">
+	<app-nav [menu]="menu$ | async"></app-nav>
+</app-header>
+
+<div class="wrapper-content">
+	<div class="page__title">
+		<h2>{{(pageContent$ | async)?.title.rendered}}</h2>
+	</div>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut pellentesque dui, vel vestibulum ligula. Integer a sem at felis lacinia semper vel eu augue. Nullam blandit sit amet erat commodo elementum. Nunc pellentesque metus a tortor interdum maximus. Sed in libero in sem finibus varius. Nullam a neque ultricies, placerat erat eu, maximus eros. Nunc sit amet ultrices sem.
+	</p>
+</div>

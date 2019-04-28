@@ -1,0 +1,18 @@
+<header class="app-header">
+	<div class="header__content wrapper-content">
+		<div class="header__logo">
+			<a [routerLink]="'/'">
+				<img src="assets/images/lorum-logo.jpg">
+			</a>
+		</div>
+		<div class="header__nav">
+			<ng-content select=app-nav></ng-content>
+		</div>
+	</div>
+</header>
+<div
+	class="header-image"
+	[ngStyle]="{'background-image': 'url('+ headerImage + ')'}"
+	*ngIf="headerImage"
+></div>
+

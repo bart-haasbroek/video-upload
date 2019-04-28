@@ -1,0 +1,23 @@
+<div class="mobile-nav__logo">
+	<img [src]="logo">
+</div>
+
+<div class="mobile-nav__hamburger" (click)="toggleMenu()" [class.is-open]="mobileMenuActive">
+	<div class="middle"></div>
+</div>
+
+<nav [class.is-active]="mobileMenuActive" class="mobile-nav__menu">
+	<ul>
+		<li *ngFor="let menuItem of menu">
+			<a
+			routerLinkActive="is-active"
+			(click)="toggleMenu()"
+			[class.is-active]="router.url === '/' && menuItem.slug === 'home'"
+			[routerLink]="'/' + (menuItem.page_template ? menuItem.page_template : menuItem.slug)"
+			[routerLinkActiveOptions]="{ exact: true }"
+			>
+				{{menuItem.title}}
+			</a>
+		</li>
+	</ul>
+</nav>

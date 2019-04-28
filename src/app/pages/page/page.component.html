@@ -1,0 +1,5 @@
+<app-header [headerImage]="(pageContent$ | async)?.headerImage">
+	<app-nav [menu]="menu$ | async"></app-nav>
+</app-header>
+
+<layout-component [layouts]="(pageContent$ | async)?.layouts"></layout-component>

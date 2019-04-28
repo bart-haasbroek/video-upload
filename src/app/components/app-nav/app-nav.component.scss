@@ -1,0 +1,42 @@
+@import './variables';
+
+:host {
+	display: block;
+    height: 100%;
+    position: relative;
+}
+
+.app-nav {
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+		display: flex;
+
+		li {
+			a {
+				display: block;
+				cursor: pointer;
+				padding: 32px 15px;
+				color: $color-nav-button;
+				font-size: $nav-button-size;
+
+				&:active,
+				&:focus {
+					color: $color-nav-button;;
+				}
+
+				&.is-active,
+				&:hover {
+					background: $nav-button-background;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.app-nav {
+		display: none;
+	}
+}

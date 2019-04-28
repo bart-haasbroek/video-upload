@@ -1,0 +1,102 @@
+@import './variables';
+
+:host {
+	display: block;
+
+	label {
+		padding: 5px 10px;
+		background: $color-1;
+		font-size: 13px;
+		color: white;
+		margin-left: 10px;
+		display: block;
+		transition: opacity .4s ease;
+
+		&.is-disabled {
+			pointer-events: none;
+			opacity: .4;
+		}
+	}
+
+	input {
+		display: none;
+	}
+
+	.upload-button__top {
+		display: flex;
+		align-items: center;
+	}
+
+	.upload-button__head {
+		color: $color-1;
+		font-weight: 600;
+	}
+
+	.upload-button__uploads {
+		margin-top: 10px;
+		display: flex;
+	}
+
+	.upload-button__file {
+		font-size: 12px;
+		background: $color-3;
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		margin-right: 5px;
+		padding-right: 25px;
+		position: relative;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		i {
+			font-size: 18px;
+			margin-right: 5px;
+		}
+	}
+
+	.remove {
+		width: 21px;
+		height: 100%;
+		right: 0px;
+		top: 0px;
+		position: absolute;
+		transition: background .4s ease;
+		cursor: pointer;
+
+		&:hover {
+			background: $color-border;
+		}
+
+		&:after,
+		&:before {
+			position: absolute;
+			content: '';
+			width: 2px;
+			height: 10px;
+			background: $color-dark;
+			top: 10px;
+			right: 9px;
+		}
+	
+		&:before {
+			transform: rotate(45deg);
+		}
+	
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+
+	.uploading {
+		margin-top: 10px;
+		display: flex;
+		align-items: center;
+
+		span {
+			margin-left: 10px;
+		}
+	}
+}

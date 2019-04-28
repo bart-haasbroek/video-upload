@@ -1,0 +1,47 @@
+{
+	"index": "/index.html",
+	"assetGroups": [
+		{
+			"name": "app",
+			"installMode": "prefetch",
+			"resources": {
+				"files": [
+					"/index.html",
+					"/manifest.json",
+					"/favicon.ico"
+				],
+				"versionedFiles": [
+					"/*.css",
+					"/*.js",
+					"/*.js"
+				]
+			}
+		},
+		{
+			"name": "assets",
+			"installMode": "lazy",
+			"updateMode": "prefetch",
+			"resources": {
+				"files": [
+					"/assets/**"
+				]
+			}
+		}
+	],
+	"dataGroups": [
+		{
+			"name": "api-performance",
+			"urls": [
+				"http://localhost:8888/wpBase/wp-json/*",
+				"http://www.testbase.ga/wpBase/wp-json/*",
+				"https://www.digitalbart.nl/wpBase/wp-json/*",
+				"https://www.digitalbart.nl/wptest/*"
+			],
+			"cacheConfig": {
+				"strategy": "performance",
+				"maxSize": 1000,
+				"maxAge": "3d"
+			}
+		}
+	]
+}

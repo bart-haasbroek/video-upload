@@ -1,0 +1,9 @@
+$layoutWidth: 800px !default;
+
+:host {
+	display: block;
+}
+
+.layout {
+	max-width: $layoutWidth;
+}

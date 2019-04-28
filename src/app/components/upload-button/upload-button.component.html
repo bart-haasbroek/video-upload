@@ -1,0 +1,23 @@
+<div class="upload-button__container">
+	<div class="upload-button__top">
+		<div class="upload-button__head">Upload:</div>
+		<div class="upload-button__button">
+			<label for="fileSelect" [class.is-disabled]="hasReachMaximumFiles">Upload file</label>
+			<input type="file" accept="video/mp4" id="fileSelect" (change)="addFile($event)"/>
+		</div>
+	</div>
+
+	<div class="upload-button__uploads" *ngIf="uploads.length">
+		<div class="upload-button__file" *ngFor="let file of uploads">
+			<i class="material-icons">attachment</i>
+			{{getShortFileName(file, 14)}}
+			<div class="remove" (click)="removeFile(file)"></div>
+		</div>
+	</div>
+
+	<div class="uploading" *ngIf="isUploading">
+		<span>
+			Uploading
+		</span>
+	</div>
+</div>

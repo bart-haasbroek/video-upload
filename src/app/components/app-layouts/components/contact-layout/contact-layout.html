@@ -1,0 +1,40 @@
+<div class="layout__content wrapper-content">
+	<div class="contact__container">
+		<div class="contact__col">
+			<form [formGroup]="contactForm" (ngSubmit)="sendForm()">
+				<div [innerHTML]="layoutContent.textForm"></div>
+				<div class="form-element form-element--text">
+					<input type="text" formControlName="name" placeholder="Naam">
+					<div class="form-element__notification form-element__notification--error" *ngIf="required('name')">
+						Dit veld is verplicht
+					</div>
+				</div>
+				<div class="form-element form-element--text">
+					<input type="text" formControlName="email" autocomplete='email' placeholder="E-mail">
+					<div class="form-element__notification form-element__notification--error" *ngIf="required('email')">
+						Dit veld is verplicht
+					</div>
+					<div class="form-element__notification form-element__notification--error" *ngIf="contactForm.get('email').hasError('email')">
+						Dit is geen geldig email adres
+					</div>
+				</div>
+				<div class="form-element form-element--text">
+					<input type="text" formControlName="telephone" placeholder="Telefoonnummer">
+				</div>
+				<div class="form-element form-element--text">
+					<input type="text" formControlName="subject" placeholder="Onderwerp">
+				</div>
+				<div class="form-element form-element--text">
+					<textarea formControlName="message" placeholder="Je bericht"></textarea>
+					<div class="form-element__notification form-element__notification--error" *ngIf="required('message')">
+						Dit veld is verplicht
+					</div>
+				</div>
+				<button type="submit" class="button send-button">Verzenden</button>
+			</form>
+		</div>
+		<div class="contact__col">
+			<div [innerHTML]="layoutContent.textContact"></div>
+		</div>
+	</div>
+</div>

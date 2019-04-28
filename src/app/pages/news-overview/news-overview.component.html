@@ -1,0 +1,19 @@
+<app-header [headerImage]="(pageContent$ | async)?.headerImage">
+	<app-nav [menu]="menu$ | async"></app-nav>
+</app-header>
+
+<layout-component [layouts]="(pageContent$ | async)?.layouts"></layout-component>
+
+<div *ngIf="!(isPostsLoading$ | async); else loading">
+	<div *ngFor="let post of posts | async" (click)="toSingle(post)">
+		{{post.title.rendered}}
+	</div>
+</div>
+
+<ng-template #loading>
+	loading.....
+</ng-template>
+
+<button (click)="prev()" *ngIf="!(paginationInfo | async)?.isFirstPage">vorige pagina</button>
+pagina {{(paginationInfo | async)?.currentPage}} van de {{(paginationInfo | async)?.totalPages}}
+<button (click)="next()" *ngIf="!(paginationInfo | async)?.isLastPage">volgende pagina</button>

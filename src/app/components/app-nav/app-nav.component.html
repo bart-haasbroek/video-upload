@@ -1,0 +1,16 @@
+<nav class="app-nav">
+	<ul>
+		<li *ngFor="let menuItem of menu">
+			<a
+			routerLinkActive="is-active"
+			[class.is-active]="router.url === '/' && menuItem.slug === 'home'"
+			[routerLink]="'/' + (menuItem.page_template ? menuItem.page_template : menuItem.slug)"
+			[routerLinkActiveOptions]="{ exact: true }"
+			>
+				{{menuItem.title}}
+			</a>
+		</li>
+	</ul>
+</nav>
+
+

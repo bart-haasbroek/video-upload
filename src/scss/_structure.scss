@@ -1,0 +1,39 @@
+@import './variables';
+
+body {
+	font-family: 'opensans';
+	color: #333;
+}
+
+app-root {
+	min-height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+.wrapper-content {
+	max-width: $content-width;
+	padding:  0 $content-padding;
+	margin: 0 auto;
+}
+
+main {
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+.layout {
+	padding: 20px 0;
+}
+
+.has-background {
+
+	&.background-grey {
+		background: #ccc;
+	}
+
+	+ .has-background {
+		padding-top: 0;
+	}
+}
